@@ -777,3 +777,12 @@ body.dark {
     transition: all 0.4s ease !important;
   }
 }
+
+/* User-Added Styles for input transition */
+input {
+  transition: none !important;
+}
+
+input:focus {
+  transform: none !important;
+}

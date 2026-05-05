@@ -8,6 +8,10 @@ export default function CampaignPage() {
     email: "",
   });
 
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -18,13 +22,25 @@ export default function CampaignPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const res = await fetch("/api/subscribe", {
-      method: "POST",
-      body: JSON.stringify(formData),
-    });
+    setLoading(true);
 
-    const data = await res.json();
-    console.log("Response:", data);
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        setError("");
+      } else {
+        setError("Something went wrong. Try again.");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false); // 🔥 ALWAYS stop loading
+    }
   };
 
   return (
@@ -114,30 +130,54 @@ export default function CampaignPage() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
-            <input
-              name="firstName"
-              onChange={handleChange}
-              type="text"
-              placeholder="First Name"
-              className="border p-3 rounded-lg"
-            />
+          <form onSubmit={handleSubmit}>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="h-[48px] rounded-md border border-gray-300 px-3 flex items-center">
+                <input
+                  name="firstName"
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="First Name"
+                  className="w-full bg-transparent outline-none border-none p-0 focus:outline-none focus:ring-0"
+                />
+              </div>
 
-            <input
-              name="email"
-              onChange={handleChange}
-              type="email"
-              placeholder="Email Address"
-              className="border p-3 rounded-lg"
-            />
+              <div className="h-[48px] rounded-md border border-gray-300 px-3 flex items-center">
+                <input
+                  name="email"
+                  onChange={handleChange}
+                  type="email"
+                  placeholder="Email Address"
+                  className="w-full bg-transparent outline-none border-none p-0 focus:outline-none focus:ring-0"
+                />
+              </div>
+            </div>
 
-            <button
-              type="submit"
-              className="col-span-2 bg-sky-600 text-white py-3 rounded-full font-semibold"
-            >
-              Subscribe
-            </button>
+            <div className="mt-6 flex flex-col items-center">
+              <button
+                type="submit"
+                disabled={loading}
+                className="
+        bg-sky-600 text-white
+        py-3 px-6
+        rounded-md
+        font-semibold
+        disabled:opacity-50
+      "
+              >
+                {loading ? "Submitting..." : "Subscribe"}
+              </button>
+
+              {success && (
+                <p className="text-green-600 mt-3 text-center">
+                  ✅ You're in! Check your email for the first message.
+                </p>
+              )}
+            </div>
           </form>
+
+          {error && <p className="text-red-600 mt-4">{error}</p>}
+
           <p className="text-xs text-slate-500 text-center mt-3">
             No spam. Unsubscribe at any time.
           </p>
