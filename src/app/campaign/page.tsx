@@ -36,7 +36,7 @@ export default function CampaignPage() {
       } else {
         setError("Something went wrong. Try again.");
       }
-    } catch (err) {
+    } catch (error) {
       setError("Network error. Please try again.");
     } finally {
       setLoading(false); // 🔥 ALWAYS stop loading
@@ -170,7 +170,7 @@ export default function CampaignPage() {
 
               {success && (
                 <p className="text-green-600 mt-3 text-center">
-                  ✅ You're in! Check your email for the first message.
+                  ✅ You&apos;re in! Check your email for the first message.
                 </p>
               )}
             </div>
