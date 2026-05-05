@@ -37,6 +37,7 @@ export default function CampaignPage() {
         setError("Something went wrong. Try again.");
       }
     } catch (error) {
+      console.error(error);
       setError("Network error. Please try again.");
     } finally {
       setLoading(false); // 🔥 ALWAYS stop loading
