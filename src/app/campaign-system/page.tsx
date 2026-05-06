@@ -28,6 +28,19 @@ export default function CampaignCaseStudy() {
             where candidate data is captured, processed, and used to trigger
             targeted communication.
           </p>
+
+          <h3 className="text-xl font-semibold mt-8 text-center">
+            Project Walkthrough
+          </h3>
+          <div className="mt-8 flex justify-center">
+            <iframe
+              className="w-full max-w-4xl aspect-video rounded-xl shadow-lg"
+              src="https://www.youtube.com/embed/KvD6smLTYA4"
+              title="Candidate Engagement Campaign System Walkthrough"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </section>
 
         {/* FEATURES */}
