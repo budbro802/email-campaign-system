@@ -48,45 +48,55 @@ export default function CampaignPage() {
     <main className="bg-white text-slate-900">
       {/* HERO */}
       <section className="px-4 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-2 items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-sky-600 mb-3">
-              Marketing Campaign Workflow
-            </p>
-
-            <h1 className="text-4xl font-bold leading-tight">
-              Attract and Engage Job Applicants with Automated Email Campaigns
-            </h1>
-
-            <p className="text-lg text-slate-600 mb-6">
-              This campaign demonstrates how recruiting and talent acquisition
-              teams can use landing pages, structured lead capture, and
-              automated email workflows to engage candidates more effectively.
-            </p>
-
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-6">
             <a
-              href="#signup"
-              className="inline-block bg-slate-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90"
+              href="/andrew-portfolio"
+              className="text-sm text-gray-500 hover:text-gray-800"
             >
-              Join the List
+              ← Back to Portfolio
             </a>
-
-            <p className="text-sm text-center mt-4">
-              Want to see how this works?{" "}
-              <a href="/campaign-system" className="text-blue-600 underline">
-                View the system breakdown
-              </a>
-            </p>
           </div>
+          <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-2 items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-sky-600 mb-3">
+                Candidate Engagement Campaign System
+              </p>
 
-          <div className="bg-slate-100 p-6 rounded-2xl">
-            <p className="text-slate-600">This campaign showcases:</p>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600">
-              <li>Responsive recruiting landing page built with Next.js</li>
-              <li>Candidate lead capture with structured form handling</li>
-              <li>Simulated CRM/email platform integration</li>
-              <li>Automated candidate engagement email sequence </li>
-            </ul>
+              <h1 className="text-4xl font-bold leading-tight">
+                Attract and Engage Job Applicants with Automated Email Campaigns
+              </h1>
+
+              <p className="text-lg text-slate-600 mb-6">
+                This campaign demonstrates how recruiting and talent acquisition
+                teams can use landing pages, structured lead capture, and
+                automated email workflows to engage candidates more effectively.
+              </p>
+
+              <a
+                href="#signup"
+                className="inline-block bg-slate-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90"
+              >
+                Join the List
+              </a>
+
+              <p className="text-sm text-center mt-4">
+                Want to see how this works?{" "}
+                <a href="/campaign-system" className="text-blue-600 underline">
+                  View the system breakdown
+                </a>
+              </p>
+            </div>
+
+            <div className="bg-slate-100 p-6 rounded-2xl">
+              <p className="text-slate-600">This campaign showcases:</p>
+              <ul className="list-disc pl-5 space-y-2 text-slate-600">
+                <li>Responsive recruiting landing page built with Next.js</li>
+                <li>Candidate lead capture with structured form handling</li>
+                <li>Simulated CRM/email platform integration</li>
+                <li>Automated candidate engagement email sequence </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
