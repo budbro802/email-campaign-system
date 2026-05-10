@@ -5,7 +5,10 @@ export default function CampaignCaseStudy() {
         {/* TITLE */}
         <section>
           <div className="mb-6">
-            <a href="/andrew-portfolio" className="text-sm text-gray-500 hover:text-gray-800">
+            <a
+              href="https://email-developer-portfolio-delta.vercel.app/"
+              className="text-sm text-gray-500 hover:text-gray-800"
+            >
               ← Back to Portfolio
             </a>
           </div>
